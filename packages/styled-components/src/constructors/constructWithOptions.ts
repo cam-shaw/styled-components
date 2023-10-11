@@ -2,9 +2,9 @@ import {
   Attrs,
   BaseObject,
   ExecutionProps,
-  Interpolation,
   IStyledComponent,
   IStyledComponentFactory,
+  Interpolation,
   KnownTarget,
   NoInfer,
   Runtime,
@@ -13,6 +13,7 @@ import {
   Styles,
   Substitute,
 } from '../types';
+
 import { EMPTY_OBJECT } from '../utils/empties';
 import styledError from '../utils/error';
 import css from './css';
@@ -50,10 +51,7 @@ export interface Styled<
   <Props extends object = BaseObject, Statics extends object = BaseObject>(
     initialStyles: Styles<Substitute<OuterProps, NoInfer<Props>>>,
     ...interpolations: Interpolation<Substitute<OuterProps, NoInfer<Props>>>[]
-  ): IStyledComponent<R, Substitute<OuterProps, Props>> &
-    OuterStatics &
-    Statics &
-    (Target extends string ? {} : Target);
+  ): IStyledComponent<R, Substitute<OuterProps, Props>> & OuterStatics & Statics;
 
   attrs: <
     Props extends object = BaseObject,
